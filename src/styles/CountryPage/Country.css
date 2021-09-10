@@ -1,0 +1,8 @@
+.country-container {
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
+}
+.country-container img {
+	max-width: 100%;
+}
