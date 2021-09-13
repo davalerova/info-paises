@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Card } from "react-bootstrap";
+import { Link, useParams } from "react-router-dom";
+import Covid from "../components/Covid";
 
 //Styles
 import "../styles/CountryPage/CountryDetails.css";
@@ -8,6 +10,8 @@ const CountryDetails = () => {
 	const { country } = useParams();
 
 	const [details, setDetails] = useState([]);
+
+	const { name, capital, nativeName, flag, subregion, alpha2Code } = details;
 
 	const fetchDetailsAPI = async () => {
 		try {
@@ -27,13 +31,31 @@ const CountryDetails = () => {
 	}, [country]);
 
 	return (
-		<div className="container">
-			<h1>{details.name}</h1>
-			<img src={details.flag} alt={details.name} />
-			<p>Capital: {details.capital}</p>
-			<p>Nombre nativo: {details.nativeName}</p>
-			<p>Continente: {details.subregion}</p>
-		</div>
+		<>
+			<Card style={{ width: "50%", marginTop: "10px", margin: "auto" }}>
+				<Card.Img variant="top" src={flag} />
+				<Card.Body>
+					<Card.Title>{name}</Card.Title>
+					<Card.Subtitle>Capital: {capital}</Card.Subtitle>
+					<Card.Subtitle>Nombre nativo: {nativeName}</Card.Subtitle>
+					<Card.Subtitle>Continente: {subregion}</Card.Subtitle>
+				</Card.Body>
+			</Card>
+			{/* <Card style={{ width: "50%", marginTop: "10px", margin: "auto" }}>
+				<Card.Img
+					variant="top"
+					src="https://covid19api.com/assets/images/image06.png?v=a96a87fa"
+				/>
+				<Card.Body>
+					<Card.Title>{name}</Card.Title>
+					<Card.Subtitle>Capital: {capital}</Card.Subtitle>
+					<Card.Subtitle>Nombre nativo: {nativeName}</Card.Subtitle>
+					<Card.Subtitle>Continente: {subregion}</Card.Subtitle>
+					<Card.Subtitle>Código: {alpha2Code}</Card.Subtitle>
+				</Card.Body>
+			</Card> */}
+			{/* <Covid code={alpha2Code} /> */}
+		</>
 	);
 };
 

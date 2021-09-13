@@ -1,4 +1,6 @@
+import Button from "@restart/ui/esm/Button";
 import React from "react";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 //styles
@@ -6,11 +8,15 @@ import "../../styles/CountryPage/Country.css";
 
 const Country = ({ name, flag, code }) => {
 	return (
-		<div className="country-container">
-			<h2>{name}</h2>
-			<img src={flag} alt={code} />
-			<Link to={`/details/${name}`}>Ver más</Link>
-		</div>
+		<>
+			<Card style={{ width: "31%", marginTop: "10px" }}>
+				<Card.Img variant="top" src={flag} />
+				<Card.Body>
+					<Card.Title>{name}</Card.Title>
+					<Link to={`/details/${name}`}>Ver más</Link>
+				</Card.Body>
+			</Card>
+		</>
 	);
 };
 

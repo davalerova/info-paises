@@ -4,11 +4,13 @@ import React, { useState } from "react";
 import SearchForm from "../components/CountryPage/SearchForm";
 import Country from "../components/CountryPage/Country";
 import FetchError from "../components/FetchError";
+import { Spinner } from "react-bootstrap";
 
 const CountryPages = () => {
 	const [countryData, setCountryData] = useState([]);
 	const [name, setName] = useState(null);
 	const [error, setError] = useState(false);
+	const [loaddig, setLoaddig] = useState(true);
 
 	//Functions
 	const handleFetchCountryData = async () => {
@@ -33,12 +35,11 @@ const CountryPages = () => {
 			<SearchForm
 				setName={setName}
 				handleFetchCountryData={handleFetchCountryData}
-			/>
-
+			/>{" "}
 			{error ? (
 				<FetchError message={error} />
 			) : (
-				<div>
+				<div className="container">
 					{countryData.map(country => (
 						<Country
 							key={country.name}

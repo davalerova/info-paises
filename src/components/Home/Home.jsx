@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import Country from "../CountryPage/Country";
 import FetchError from "../FetchError";
 
 const Home = () => {
 	const url = "https://restcountries.eu/rest/v2/all";
-
+	const [loaddig, setLoaddig] = useState(true);
 	const [error, setError] = useState(false);
 	const [countries, setCountries] = useState([]);
 
@@ -17,6 +18,7 @@ const Home = () => {
 			} else {
 				setCountries(result);
 				setError(false);
+				setLoaddig(false);
 			}
 		} catch (error) {
 			console.log(error);
@@ -32,7 +34,8 @@ const Home = () => {
 			{error ? (
 				<FetchError message={error} />
 			) : (
-				<div>
+				<div className="container">
+					{loaddig && <Spinner animation="border" variant="info" />}
 					{countries.map(country => (
 						<Country
 							key={country.name}
