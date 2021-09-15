@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import FetchError from "./components/FetchError";
 import Home from "./components/Home/Home";
 import CountryDetails from "./views/CountryDetails";

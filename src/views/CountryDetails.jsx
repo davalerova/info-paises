@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
-import Covid from "../components/Covid";
+import { useParams } from "react-router-dom";
 
 //Styles
 import "../styles/CountryPage/CountryDetails.css";
@@ -11,7 +10,7 @@ const CountryDetails = () => {
 
 	const [details, setDetails] = useState([]);
 
-	const { name, capital, nativeName, flag, subregion, alpha2Code } = details;
+	const { name, capital, nativeName, flag, subregion } = details;
 
 	const fetchDetailsAPI = async () => {
 		try {
@@ -28,7 +27,7 @@ const CountryDetails = () => {
 
 	useEffect(() => {
 		fetchDetailsAPI();
-	}, [country]);
+	});
 
 	return (
 		<>
