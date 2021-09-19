@@ -5,10 +5,18 @@
 }
 .country-container img {
 	max-width: 100%;
+	border: solid 1px gray;
 	margin: 0 auto;
 }
 
 .card {
-	width: "31%";
-	margin-top: "10px";
+	width: 31%;
+	margin: 10px;
+	background-color: bisque;
+}
+
+@media screen and (max-width: 760px) {
+	.card {
+		width: 100%;
+	}
 }

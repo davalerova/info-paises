@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 //styles
 import "../../styles/CountryPage/SearchForm.css";
@@ -13,7 +14,7 @@ const SearchForm = ({ setName, handleFetchCountryData }) => {
 				placeholder="Nombre del país"
 				onChange={e => setName(e.target.value)}
 			/>
-			<button onClick={handleFetchCountryData}>Buscar</button>
+			<Button onClick={handleFetchCountryData}>Buscar</Button>
 		</div>
 	);
 };

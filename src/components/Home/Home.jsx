@@ -8,6 +8,7 @@ const Home = () => {
 	const [loaddig, setLoaddig] = useState(true);
 	const [error, setError] = useState(false);
 	const [countries, setCountries] = useState([]);
+	const [data, setData] = useState([]);
 
 	const handleFetchCountryData = async () => {
 		try {
@@ -17,6 +18,7 @@ const Home = () => {
 				setError(result.message);
 			} else {
 				setCountries(result);
+				// console.log(result);
 				setError(false);
 				setLoaddig(false);
 			}
@@ -25,8 +27,13 @@ const Home = () => {
 		}
 	};
 
+	const handleSliceData = ({ countries }) => {
+		const set = setData(countries.slice(0, 20));
+		console.log("slice: ", countries.slice(0, 20));
+	};
+
 	useEffect(() => {
-		handleFetchCountryData();
+		handleFetchCountryData().then(handleSliceData({ countries }));
 	}, []);
 
 	return (
@@ -44,6 +51,7 @@ const Home = () => {
 							code={country.alpha2Code}
 						/>
 					))}
+					{/* <Button onClick={handleSliceData(countries)}></Button> */}
 				</div>
 			)}
 		</>

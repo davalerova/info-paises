@@ -1,5 +1,4 @@
 .container {
-	background-color: white;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-around;
@@ -8,4 +7,19 @@
 
 .container img {
 	max-width: 100%;
+}
+
+.card {
+	width: 31%;
+	border: solid 1px rgb(65, 52, 52);
+	margin-top: 10px;
+	background-color: bisque;
+}
+
+@media screen and (max-width: 760px) {
+	.card {
+		width: 100%;
+		margin: auto;
+		margin-top: 10px;
+	}
 }

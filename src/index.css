@@ -9,15 +9,25 @@ body {
 	width: 100%;
 	margin: 0 auto;
 	box-sizing: border-box;
+	/* overflow: scroll; */
 }
 
 @media screen and (max-width: 760px) {
 	body {
 		width: 100%;
+		text-align: center;
 	}
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
+}
+
+#root {
+	background-color: bisque;
+}
+
+html {
+	background-color: bisque;
 }
