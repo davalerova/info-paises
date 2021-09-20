@@ -28,3 +28,9 @@
 	width: 25px;
 	height: 25px;
 }
+
+.card_body {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}

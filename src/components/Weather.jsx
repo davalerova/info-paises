@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
-import "../styles/CountryPage/CountryDetails.css";
 import Location from "../assets/location.svg";
 import Refresh from "../assets/refresh-page-option.svg";
 import Temp from "../assets/thermometer.svg";
@@ -10,6 +9,16 @@ import Atm from "../assets/gauge.svg";
 import Eye from "../assets/eye.svg";
 import Sunrise from "../assets/sunrise.svg";
 import Sunset from "../assets/sunset.svg";
+import ClearSky from "../assets/giphy.gif";
+import BrokenClouds from "../assets/broken clouds.gif";
+import LightRain from "../assets/light rain.gif";
+import FewClouds from "../assets/fewclouds.gif";
+import ScarttedClouds from "../assets/scartted clouds.gif";
+import Haze from "../assets/haze.gif";
+import ModerateRain from "../assets/moderate rain.gif";
+import Thunderstorm from "../assets/Thunderstorm.gif";
+import Smoke from "../assets/smoke.gif";
+import "../styles/CountryPage/CountryDetails.css";
 
 const Weather = ({ capital }) => {
 	const [data, setData] = useState([]);
@@ -34,7 +43,35 @@ const Weather = ({ capital }) => {
 		<>
 			{data.main && (
 				<Card className="bg-info text-white">
+					<Card.Img
+						variant="top"
+						src={
+							data.weather[0].description === "clear sky"
+								? ClearSky
+								: data.weather[0].description === "broken clouds"
+								? BrokenClouds
+								: data.weather[0].description === "few clouds"
+								? FewClouds
+								: data.weather[0].description === "scattered clouds"
+								? ScarttedClouds
+								: data.weather[0].description === "haze"
+								? Haze
+								: data.weather[0].description === "moderate rain"
+								? ModerateRain
+								: data.weather[0].description === "thunderstorm"
+								? Thunderstorm
+								: data.weather[0].description === "light rain"
+								? LightRain
+								: data.weather[0].description === "light intensity drizzle"
+								? LightRain
+								: data.weather[0].description === "smoke"
+								? Smoke
+								: null
+						}
+					/>
 					<Card.Body>
+						<Card.Title className="text-center">{`${data.weather[0].description}`}</Card.Title>
+
 						<Card.Title>
 							<img className="icon" src={Location} alt="Location" />
 							{`: ${capital}`}

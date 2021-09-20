@@ -36,7 +36,7 @@ const CountryDetails = () => {
 		<div className="container">
 			<Card className="bg-info text-white">
 				<Card.Img variant="top" src={flag} border="primary" />
-				<Card.Body>
+				<Card.Body className="card_body">
 					<Card.Title>{name}</Card.Title>
 					<Card.Subtitle>Capital: {capital}</Card.Subtitle>
 					<Card.Subtitle>Nombre nativo: {nativeName}</Card.Subtitle>
