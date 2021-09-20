@@ -8,7 +8,7 @@ import "../../styles/CountryPage/Country.css";
 const Country = ({ name, flag, code }) => {
 	return (
 		<>
-			<Card bg="info">
+			<Card className="bg-info text-white">
 				<Card.Img variant="top" src={flag} />
 				<Card.Body>
 					<Card.Title>{name}</Card.Title>

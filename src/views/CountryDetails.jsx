@@ -29,11 +29,12 @@ const CountryDetails = () => {
 
 	useEffect(() => {
 		fetchDetailsAPI();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
 		<div className="container">
-			<Card bg="info">
+			<Card className="bg-info text-white">
 				<Card.Img variant="top" src={flag} border="primary" />
 				<Card.Body>
 					<Card.Title>{name}</Card.Title>
