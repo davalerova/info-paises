@@ -30,7 +30,7 @@ const Weather = ({ capital }) => {
 				`https://api.openweathermap.org/data/2.5/weather?q=${capital}&appid=${apiKey}`
 			);
 			const request = await response.json();
-			console.log(request);
+			// console.log(request);
 			setData(request);
 		}
 	};

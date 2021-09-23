@@ -26,7 +26,7 @@ const CountryDetails = () => {
 		}
 	};
 
-	console.log("Flag desde country details: ", flags);
+	// console.log("Flag desde country details: ", flags);
 
 	useEffect(() => {
 		fetchDetailsAPI();

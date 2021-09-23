@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 import "../../styles/CountryPage/Country.css";
 
 const Country = ({ name, flag, code }) => {
-	useEffect(() => {
-		console.log("Flag desde country con effect: ", flag);
-	}, [flag]);
+	useEffect(() => {}, [flag]);
 	return (
 		<>
 			<Card className="bg-info text-white">

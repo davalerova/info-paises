@@ -18,7 +18,7 @@ const CountryPages = () => {
 				`https://restcountries.com/v2/name/${name}?fullText=true`
 			);
 			const result = await response.json();
-			console.log(result);
+			// console.log(result);
 			if (result.status) {
 				setError(result.message);
 			} else {
