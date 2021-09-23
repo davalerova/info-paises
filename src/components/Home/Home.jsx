@@ -4,7 +4,7 @@ import Country from "../CountryPage/Country";
 import FetchError from "../FetchError";
 
 const Home = () => {
-	const url = "https://restcountries.eu/rest/v2/all";
+	const url = "https://restcountries.com/v2/all";
 	const [loaddig, setLoaddig] = useState(true);
 	const [error, setError] = useState(false);
 	const [countries, setCountries] = useState([]);
@@ -39,8 +39,8 @@ const Home = () => {
 					{loaddig && <Spinner animation="border" variant="info" />}
 					{countries.map(country => (
 						<Country
-							key={country.name}
-							flag={country.flag}
+							key={country.alpha3Code}
+							flag={country.flags[0]}
 							name={country.name}
 							code={country.alpha2Code}
 						/>

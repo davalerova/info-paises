@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
@@ -6,6 +6,9 @@ import { Link } from "react-router-dom";
 import "../../styles/CountryPage/Country.css";
 
 const Country = ({ name, flag, code }) => {
+	useEffect(() => {
+		console.log("Flag desde country con effect: ", flag);
+	}, [flag]);
 	return (
 		<>
 			<Card className="bg-info text-white">

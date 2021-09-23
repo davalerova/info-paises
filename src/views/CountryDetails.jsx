@@ -11,21 +11,22 @@ const CountryDetails = () => {
 
 	const [details, setDetails] = useState([]);
 
-	const { name, capital, nativeName, flag, subregion, region, population } =
+	const { name, capital, nativeName, flags, subregion, region, population } =
 		details;
 
 	const fetchDetailsAPI = async () => {
 		try {
 			const response = await fetch(
-				`https://restcountries.eu/rest/v2/name/${country}?`
+				`https://restcountries.com/v2/name/${country}?`
 			);
 			const result = await response.json();
 			setDetails(result[0]);
-			console.log("Desde detealles", result);
 		} catch (error) {
 			console.log(error);
 		}
 	};
+
+	console.log("Flag desde country details: ", flags);
 
 	useEffect(() => {
 		fetchDetailsAPI();
@@ -35,7 +36,14 @@ const CountryDetails = () => {
 	return (
 		<div className="container">
 			<Card className="bg-info text-white">
-				<Card.Img variant="top" src={flag} border="primary" />
+				{flags && (
+					<Card.Img
+						variant="top"
+						src={flags[0]}
+						alt={flags[0]}
+						border="primary"
+					/>
+				)}
 				<Card.Body className="card_body">
 					<Card.Title>{name}</Card.Title>
 					<Card.Subtitle>Capital: {capital}</Card.Subtitle>

@@ -15,7 +15,7 @@ const CountryPages = () => {
 	const handleFetchCountryData = async () => {
 		try {
 			const response = await fetch(
-				`https://restcountries.eu/rest/v2/name/${name}?fullText=true`
+				`https://restcountries.com/v2/name/${name}?fullText=true`
 			);
 			const result = await response.json();
 			console.log(result);
@@ -42,7 +42,7 @@ const CountryPages = () => {
 					{countryData.map(country => (
 						<Country
 							key={country.name}
-							flag={country.flag}
+							flag={country.flags[0]}
 							name={country.name}
 							code={country.alpha2Code}
 						/>
